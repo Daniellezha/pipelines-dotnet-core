@@ -33,5 +33,20 @@ steps:
     command: test
     projects: '**/*Tests/*.csproj'
     arguments: --configuration $(buildConfiguration)
+
+- task: DotNetCoreCLI@2
+  inputs: 
+   command: publish
+   publishWebProjects: True
+   arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactsStagingDirectory)'
+   zipAfterPublish: True
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- task: AzureWebApp@1
+  inputs:
+   azureSubscription: 329721d5-deb1-4957-b038-ce28ff50bc4d
+   appName: PipelineApp0418
+   appType: webApp
+   package: '$(System.DefaultWorkingDirectory)'
+
