@@ -45,7 +45,7 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-   azureSubscription: 329721d5-deb1-4957-b038-ce28ff50bc4d
+   azureSubscription: DanSub
    appName: PipelineApp0418
    appType: webApp
    package: '$(System.DefaultWorkingDirectory)'
