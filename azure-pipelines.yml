@@ -17,7 +17,7 @@ steps:
 - task: UseDotNet@2
   displayName: 'Install .NET core SDK'
   inputs:
-    version: '2.2.*' 
+    version: '2.2.x' 
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
